@@ -1,7 +1,10 @@
 // Inicializar server usando node js
 
 const express = require('express');
-const app = express()
+const app = express();
+
+const data = require("./data.json");
+app.use(express.json());
 
 // Verbos HTTP
 //GET
@@ -17,10 +20,12 @@ const app = express()
 //não utilizar barras(/) no final dos endpoints - feito
 
 
-app.get('/clients')
-app.post('/clients')
-app.put('/clients')
-app.delete('/clients')
+app.get('/clients',function(req, res){
+    res.json(data);
+});
+app.post('/clients',function(req, res){});
+app.put('/clients',function(req, res){}); 
+app.delete('/clients',function(req, res){});
 
 
 app.listen(3000, function() {
