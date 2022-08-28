@@ -23,6 +23,18 @@ app.use(express.json());
 app.get('/clients',function(req, res){
     res.json(data);
 });
+
+//método para selecionar o cliente por id, colocar (/numero do id) na frente do endpoint
+app.get('/clients/:id',function(req, res){
+    const {id} = req.params;
+    const client = data.find(cli => cli.id == id);
+    //estrutura caso o id não seja achado(o numero do erro pode mudar dependendo do caso)
+    if( !client ){
+        return res.status(204).json();
+    }
+    res.json(client);
+});
+
 app.post('/clients',function(req, res){});
 app.put('/clients',function(req, res){}); 
 app.delete('/clients',function(req, res){});
