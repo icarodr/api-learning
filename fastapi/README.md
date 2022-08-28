@@ -1,2 +1,2 @@
-# fast-api-learning
-Fast API tests 
+# api-learning
+API tests 
