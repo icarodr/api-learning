@@ -23,11 +23,12 @@ app.use(express.json());
 //req => request
 //res => response
 
+//( GET )
 app.get('/clients',function(req, res){
     res.json(data);
 });
 
-//método para selecionar o cliente por id, colocar (/numero do id) na frente do endpoint
+//método para selecionar o cliente por id, colocar (/numero do id) na frente do endpoint( GET )
 app.get('/clients/:id',function(req, res){
     const {id} = req.params;
     const client = data.find(cli => cli.id == id);
@@ -38,14 +39,14 @@ app.get('/clients/:id',function(req, res){
     res.json(client);
 });
 
-//extrai apenas nome e email do client
+//extrai apenas nome e email do client ( POST )
 app.post('/clients',function(req, res){
     const { name, email } = req.body;
     //salvar novo client( post )
     res.json({name, email})
 });
 
-//Atualizar o Client( método put )
+//Atualizar o Client( PUT )
 app.put('/clients/:id',function(req, res){
     const {id} = req.params;
     const client = data.find(cli => cli.id == id);
@@ -59,7 +60,7 @@ app.put('/clients/:id',function(req, res){
     res.json(client);
 
 }); 
-
+//Deletar um client ( DELETE  )
 app.delete('/clients/:id',function(req, res){
     const {id} = req.params;
     const clientsFiltered = data.filter(client => client.id != id);
