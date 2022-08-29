@@ -59,9 +59,15 @@ app.put('/clients/:id',function(req, res){
     res.json(client);
 
 }); 
-app.delete('/clients:id',function(req, res){});
 
-//=============================================================
+app.delete('/clients/:id',function(req, res){
+    const {id} = req.params;
+    const clientsFiltered = data.filter(client => client.id != id);
+
+    res.json(clientsFiltered);
+});
+
+//===============================================
 //Mensagem( para testar se estiver funcionando )
 
 app.listen(3000, function() {
