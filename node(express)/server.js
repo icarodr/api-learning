@@ -19,6 +19,9 @@ app.use(express.json());
 //colocar os endpoints - feito
 //não utilizar barras(/) no final dos endpoints - feito
 
+//parametros da callback function
+//req => request
+//res => response
 
 app.get('/clients',function(req, res){
     res.json(data);
@@ -35,11 +38,33 @@ app.get('/clients/:id',function(req, res){
     res.json(client);
 });
 
-app.post('/clients',function(req, res){});
-app.put('/clients',function(req, res){}); 
+//extrai apenas nome e email do client
+app.post('/clients',function(req, res){
+    const { name, email } = req.body;
+    //salvar novo client( post )
+    res.json({name, email})
+});
+
+//Atualizar o Client( método put )
+app.put('/clients',function(req, res){
+    const {id} = req.params;
+    const client = data.find(cli => cli.id == id);
+
+    if( !client ){
+        return res.status(204).json();
+    }
+    const { name, email } = req.body;
+    client.name = name;
+    
+    res.json(client);
+
+}); 
 app.delete('/clients',function(req, res){});
 
+//=============================================================
+//Mensagem( para testar se estiver funcionando )
 
 app.listen(3000, function() {
     console.log('Server está funcionando')
 });
+ 
