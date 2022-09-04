@@ -72,7 +72,6 @@ app.delete('/clients/:id',function(req, res){
 
     res.json(clientsFiltered);
 });
-
 //===============================================//
 //Mensagem( para testar se estiver funcionando )
 //Numero da porta: 3000

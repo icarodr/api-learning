@@ -405,6 +405,6 @@
   "version" "1.1.2"
 
 "yarn@^1.22.19":
-  "integrity" "sha1-S6f8XG5wT84gZuy/sLDYl2/mJEc="
-  "resolved" "https://rb-artifactory.bosch.com:443/artifactory/api/npm/npm-repo/yarn/-/yarn-1.22.19.tgz"
+  "integrity" "sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ=="
+  "resolved" "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
   "version" "1.22.19"
