@@ -19,7 +19,7 @@ cursos = {
 
 app = FastAPI()
 
-@app.get('/')
+@app.get('/cursos')
 async def raiz():
     return cursos
 
@@ -42,6 +42,15 @@ async def post_curso(curso: Curso):
     else:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail='Já existe um curso com o ID {curso.id}')
 
+@app.put('/cursos/{curso_id}')
+async def put_curso(curso_id: int, curso: Curso):
+    if curso_id in cursos:
+        cursos[curso_id] = curso
+        return curso
+    else:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Esse Curso não Existe.")
+
+# @app.delete('cursos/{curso_id}')
 
 if __name__=="__main__":
     import uvicorn
